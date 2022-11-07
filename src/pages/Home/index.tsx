@@ -1,4 +1,11 @@
+import { useState } from "react";
+import { Login } from "../Login";
+import { Register } from "../Registro";
+
 function Home() {
+  const [selectedLoginOrRegister, setSelectedLoginOrRegister] = useState<
+    "login" | "register"
+  >("login");
   return (
     <div>
       <div className="flex justify-center">
@@ -10,14 +17,23 @@ function Home() {
             </p>
           </div>
           <div className="flex justify-between">
-            <button className="duration-[0.5s] text-white h-12 items-center w-6/12 flex justify-center hover:bg-white hover:text-gray-900">
+            <button
+              onClick={() => setSelectedLoginOrRegister("login")}
+              className="duration-[0.5s] text-white h-12 items-center w-6/12 flex justify-center hover:bg-white hover:text-gray-900"
+            >
               <h3 className="">Login</h3>
             </button>
-            <button className="duration-[0.5s] text-white h-12 items-center w-6/12 flex justify-center hover:bg-white hover:text-gray-900">
+            <button
+              onClick={() => setSelectedLoginOrRegister("register")}
+              className="duration-[0.5s] text-white h-12 items-center w-6/12 flex justify-center hover:bg-white hover:text-gray-900"
+            >
               <h3 className="">Register</h3>
             </button>
           </div>
         </div>
+      </div>
+      <div>
+        {selectedLoginOrRegister === "login" ? <Login /> : <Register />}
       </div>
     </div>
   );
