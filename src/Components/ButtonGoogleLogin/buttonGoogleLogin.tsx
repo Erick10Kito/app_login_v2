@@ -1,5 +1,7 @@
-import { ButtonHTMLAttributes } from "react";
+import { ButtonHTMLAttributes, useContext } from "react";
 import IconeGoogle from "../../assets/googleIcon.png";
+import { AuthContext } from "../../contexts/AuthContext";
+import { loginGoogle } from "../../services/firebase";
 
 function ButtonGoogleLogin(props: ButtonHTMLAttributes<HTMLButtonElement>) {
   return (

@@ -1,18 +1,36 @@
 import { initializeApp } from "firebase/app";
-import { env } from "process";
+
+import {
+  getAuth,
+  GoogleAuthProvider,
+  signInWithPopup,
+  signOut,
+} from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: env.REACT_APP_FIREBASE_APIKEY,
+  apiKey: process.env.REACT_APP_FIREBASE_APIKEY,
 
-  authDomain: env.REACT_APP_FIREBASE_AUTHDOMAIN,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTHDOMAIN,
 
-  projectId: env.REACT_APP_FIREBASE_PROJECTID,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECTID,
 
-  storageBucket: env.REACT_APP_FIREBASE_SOTORAGEBUCKET,
+  storageBucket: process.env.REACT_APP_FIREBASE_SOTORAGEBUCKET,
 
-  messagingSenderId: env.REACT_APP_FIREBASE_MESSAGINGSENDERI,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGINGSENDERI,
 
-  appId: env.REACT_APP_FIREBASE_APPID,
+  appId: process.env.REACT_APP_FIREBASE_APPID,
 };
 
 const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const loginGoogle = () => {
+  const provider = new GoogleAuthProvider();
+  const result = signInWithPopup(auth, provider);
+  return result;
+};
+const Logout = async () => {
+  await signOut(auth);
+  return document.location.reload();
+};
+
+export { auth, loginGoogle, Logout };

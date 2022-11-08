@@ -1,11 +1,11 @@
-import { ButtonGoogleLogin } from "../../Components/ButtonGoogleLogin/buttonGoogleLogin";
-import { InputApp } from "../../Components/Input/input";
+import { ButtonGoogleLogin } from "../ButtonGoogleLogin/buttonGoogleLogin";
+import { InputApp } from "../Input/input";
 
-function Login() {
+function Register() {
   return (
     <div>
       <h1 className="text-black text-center mb-5 font-['Titillium_Web'] text-[25px]">
-        Faça Login com:
+        Registre-se com:
       </h1>
       <div>
         <form className="bg-[transparent] flex flex-col items-center gap-[25px]">
@@ -29,4 +29,4 @@ function Login() {
   );
 }
 
-export { Login };
+export { Register };
