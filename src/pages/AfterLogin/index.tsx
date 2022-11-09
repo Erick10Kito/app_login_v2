@@ -1,5 +1,12 @@
+import { HeaderAfterLogin } from "../../Components/HeaderAfterLogin";
+
 function AfterLogin() {
-  return <h1>ola</h1>;
+  return (
+    <div className="bg-gray-700">
+      <HeaderAfterLogin />
+      <h1>ola</h1>
+    </div>
+  );
 }
 
 export { AfterLogin };
