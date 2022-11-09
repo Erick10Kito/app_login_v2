@@ -1,5 +1,5 @@
-import { ButtonGoogleLogin } from "../ButtonGoogleLogin/buttonGoogleLogin";
-import { InputApp } from "../Input/input";
+import { ButtonGoogleLogin } from "../ButtonGoogleLogin/";
+import { InputApp } from "../Input/";
 
 function Register() {
   return (
