@@ -2,8 +2,8 @@ import { createContext, ReactElement, useState } from "react";
 
 interface IUser {
   id?: string;
-  avatar?: string | null;
-  name?: string | null;
+  avatar?: string;
+  name?: string;
   mail?: string | null;
   children?: ReactElement;
 }
