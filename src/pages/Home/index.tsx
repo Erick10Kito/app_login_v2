@@ -13,10 +13,10 @@ function Home() {
   return (
     <>
       {!user.name ? (
-        <div className="flex justify-center items-center h-screen bg-gray-700">
-          <div className="w-[700px]">
-            <div className="flex justify-center">
-              <div className="w-full bg-gray-900 pt-8">
+        <div className="flex justify-center items-center h-screen bg-gray-700 ">
+          <div className="w-[700px] ">
+            <div className="flex justify-center ">
+              <div className="w-full bg-gray-900 pt-8 rounded-t-[10px]">
                 <div className="mb-8 px-4">
                   <h1 className="text-white font-['Titillium_Web'] text-[40px]">
                     Bem vindo!
@@ -41,7 +41,7 @@ function Home() {
                 </div>
               </div>
             </div>
-            <div className="pt-12 pb-12 bg-gray-200">
+            <div className="pt-12 pb-12 bg-gray-200 rounded-b-[10px]">
               {selectedLoginOrRegister === "login" ? <Login /> : <Register />}
             </div>
           </div>
