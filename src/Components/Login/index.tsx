@@ -45,14 +45,10 @@ function Login() {
         Ou
       </p>
       <div className="flex justify-center">
-        <button
+        <ButtonGoogleLogin
           onClick={() => handleClickButtonLogin()}
           type="button"
-          className="flex items-center gap-[10px] py-2 px-8 border border-solid border-black"
-        >
-          <img className="h-6" src={IconeGoogle} />
-          <p>Logar com o google</p>
-        </button>
+        />
       </div>
     </div>
   );
