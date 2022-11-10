@@ -2,8 +2,8 @@ import { createContext, ReactElement, useState } from "react";
 
 interface IUser {
   id?: string;
-  avatar?: string;
-  name?: string;
+  avatar?: string | null;
+  name?: string | null;
   mail?: string | null;
   children?: ReactElement;
 }
@@ -26,9 +26,6 @@ const formatUserData = ({
   photoURL,
   email,
 }: IUnformatedUserData): IUser => {
-  if (!displayName || !photoURL) {
-    throw new Error("O Usuario não tem Nome ou Foto");
-  }
   return {
     id: uid,
     avatar: photoURL,

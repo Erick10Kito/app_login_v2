@@ -28,6 +28,7 @@ const loginGoogle = () => {
   const result = signInWithPopup(auth, provider);
   return result;
 };
+
 const Logout = async () => {
   await signOut(auth);
   return document.location.reload();

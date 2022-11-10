@@ -7,7 +7,7 @@ import { InputApp } from "../Input/";
 function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [createUserWithEmailAndPassword, user, loading, error] =
+  const [createUserWithEmailAndPassword, loading] =
     useCreateUserWithEmailAndPassword(auth);
 
   function handleSignOut(e: React.MouseEvent<HTMLButtonElement>) {

@@ -12,7 +12,7 @@ function Home() {
   >("login");
   return (
     <>
-      {!user.name ? (
+      {!user.id ? (
         <div className="flex justify-center items-center bg-gray-700">
           <div className="w-[700px] my-4 ">
             <div className="flex justify-center ">

@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
 import { auth, loginGoogle } from "../../services/firebase";
-import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { signInWithEmailAndPassword } from "firebase/auth";
+
 import { InputApp } from "../Input/";
 import IconeGoogle from "../../assets/googleIcon.png";
-import { EventType } from "@testing-library/react";
 
 function Login() {
   const { setLogin } = useContext(AuthContext);
@@ -17,6 +17,22 @@ function Login() {
     });
   }, []);
 
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  async function handleSignIn(e: React.MouseEvent<HTMLButtonElement>) {
+    e.preventDefault();
+    signInWithEmailAndPassword(auth, email, password)
+      .then((result) => {
+        setLogin(result.user);
+        console.log(result);
+      })
+      .catch((error) => {
+        setErrorMessage(`${error.code} - ${error.message}`);
+      });
+  }
+
   const handleClickButtonLogin = async () => {
     const result = await loginGoogle();
 
@@ -28,18 +44,31 @@ function Login() {
 
   return (
     <div>
-      <h1 className="text-black text-center mb-5 font-['Titillium_Web'] text-[25px]">
-        Faça Login com:
-      </h1>
       <div>
         <form className="bg-[transparent] flex flex-col items-center gap-[25px]">
-          <InputApp type="text" name="email" id="email" placeholder="email" />
+          <p>{errorMessage}</p>
+          <InputApp
+            type="text"
+            name="email"
+            id="email"
+            placeholder="email"
+            onChange={(e) => setEmail(e.target.value)}
+          />
           <InputApp
             type="password"
             name="password"
             id="password"
             placeholder="password"
+            onChange={(e) => setPassword(e.target.value)}
           />
+
+          <button
+            className="duration-[0.5s] font-['Titillium_Web'] bg-gray-300 py-2 px-6 hover:bg-gray-700 hover:text-white"
+            type="submit"
+            onClick={(e) => handleSignIn(e)}
+          >
+            Logar
+          </button>
         </form>
       </div>
 

@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { HeaderAfterLogin } from "../../Components/HeaderAfterLogin";
 import { AuthContext } from "../../contexts/AuthContext";
+import IconeGoogle from "../../assets/googleIcon.png";
 
 function AfterLogin() {
   const { user } = useContext(AuthContext);
@@ -11,10 +12,14 @@ function AfterLogin() {
         <div className="px-4 flex items-center justify-between">
           <div className="py-6 flex items-center w-[50%]">
             <div>
-              <img
-                className="h-32 border-solid border-2 border-white rounded-[10px]"
-                src={user.avatar}
-              />
+              {user.avatar ? (
+                <img
+                  className="h-32 border-solid border-2 border-white rounded-[10px]"
+                  src={user.avatar}
+                />
+              ) : (
+                <img className="h-6" src={IconeGoogle} />
+              )}
             </div>
             <div className="ml-8">
               <h2 className="text-white text-3xl font-['Titillium_Web']">
