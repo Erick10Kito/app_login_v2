@@ -1,10 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
-import { auth } from "../../services/firebase";
+import { AuthContext } from "../../contexts/AuthContext";
+import { auth, loginGoogle } from "../../services/firebase";
 import { ButtonGoogleLogin } from "../ButtonGoogleLogin/";
 import { InputApp } from "../Input/";
 
 function Register() {
+  const { setLogin } = useContext(AuthContext);
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [createUserWithEmailAndPassword, loading] =
@@ -14,6 +17,16 @@ function Register() {
     e.preventDefault();
     createUserWithEmailAndPassword(email, password);
   }
+
+  /* função do botão de logar com o google*/
+  const handleClickButtonLogin = async () => {
+    const result = await loginGoogle();
+
+    if (result.user) {
+      setLogin(result.user);
+      console.log(result.user);
+    }
+  };
 
   if (loading) {
     return <p>carregando</p>;
@@ -50,7 +63,10 @@ function Register() {
         Ou
       </p>
       <div className="flex justify-center">
-        <ButtonGoogleLogin />
+        <ButtonGoogleLogin
+          onClick={() => handleClickButtonLogin()}
+          type="button"
+        />
       </div>
     </div>
   );
