@@ -1,12 +1,14 @@
-import { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
 import { auth, loginGoogle } from "../../services/firebase";
-import { ButtonGoogleLogin } from "../ButtonGoogleLogin/";
+import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { InputApp } from "../Input/";
 import IconeGoogle from "../../assets/googleIcon.png";
+import { EventType } from "@testing-library/react";
 
 function Login() {
-  const { user, setLogin } = useContext(AuthContext);
+  const { setLogin } = useContext(AuthContext);
+
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       if (user) {

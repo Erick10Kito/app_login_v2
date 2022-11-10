@@ -13,8 +13,8 @@ function Home() {
   return (
     <>
       {!user.name ? (
-        <div className="flex justify-center items-center h-screen bg-gray-700 ">
-          <div className="w-[700px] ">
+        <div className="flex justify-center items-center bg-gray-700">
+          <div className="w-[700px] my-4 ">
             <div className="flex justify-center ">
               <div className="w-full bg-gray-900 pt-8 rounded-t-[10px]">
                 <div className="mb-8 px-4">
