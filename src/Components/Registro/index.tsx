@@ -9,7 +9,7 @@ function Register() {
   const [password, setPassword] = useState("");
   const [createUserWithEmailAndPassword, loading] =
     useCreateUserWithEmailAndPassword(auth);
-
+  /* função do botão de registrar com email e senha*/
   function handleSignOut(e: React.MouseEvent<HTMLButtonElement>) {
     e.preventDefault();
     createUserWithEmailAndPassword(email, password);

@@ -21,6 +21,7 @@ function Login() {
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
+  /* função do botão de logar com email e senha*/
   async function handleSignIn(e: React.MouseEvent<HTMLButtonElement>) {
     e.preventDefault();
     signInWithEmailAndPassword(auth, email, password)
@@ -32,7 +33,7 @@ function Login() {
         setErrorMessage(`${error.code} - ${error.message}`);
       });
   }
-
+  /* função do botão de logar com o google*/
   const handleClickButtonLogin = async () => {
     const result = await loginGoogle();
 
