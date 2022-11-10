@@ -47,7 +47,6 @@ function Login() {
     <div>
       <div>
         <form className="bg-[transparent] flex flex-col items-center gap-[25px]">
-          <p>{errorMessage}</p>
           <InputApp
             type="text"
             name="email"

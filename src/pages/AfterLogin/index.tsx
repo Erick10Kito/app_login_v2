@@ -1,7 +1,8 @@
 import { useContext } from "react";
 import { HeaderAfterLogin } from "../../Components/HeaderAfterLogin";
 import { AuthContext } from "../../contexts/AuthContext";
-import IconeGoogle from "../../assets/googleIcon.png";
+
+import AnonimoProfile from "../../assets/Anonimo.png";
 
 function AfterLogin() {
   const { user } = useContext(AuthContext);
@@ -9,8 +10,8 @@ function AfterLogin() {
     <>
       <HeaderAfterLogin />
       <div className="h-full flex flex-col">
-        <div className="px-4 flex items-center justify-between">
-          <div className="py-6 flex items-center w-[50%]">
+        <div className="px-4 py-6 flex items-center justify-between">
+          <div className="flex items-center w-[50%]">
             <div>
               {user.avatar ? (
                 <img
@@ -18,13 +19,22 @@ function AfterLogin() {
                   src={user.avatar}
                 />
               ) : (
-                <img className="h-6" src={IconeGoogle} />
+                <img
+                  className="h-32 w-32 border-solid border-2 border-white rounded-[10px]"
+                  src={AnonimoProfile}
+                />
               )}
             </div>
             <div className="ml-8">
-              <h2 className="text-white text-3xl font-['Titillium_Web']">
-                {user.name}
-              </h2>
+              {user.name ? (
+                <h2 className="text-white text-3xl font-['Titillium_Web']">
+                  {user.name}
+                </h2>
+              ) : (
+                <h2 className="text-white text-3xl font-['Titillium_Web']">
+                  Usuario Sem Nome
+                </h2>
+              )}
               <p className="font-['Titillium_Web'] text-xl text-white">
                 {user.mail}
               </p>
