@@ -4,6 +4,7 @@ import { AuthContext } from "../../contexts/AuthContext";
 import { auth, loginGoogle } from "../../services/firebase";
 import { ButtonGoogleLogin } from "../ButtonGoogleLogin/";
 import { InputApp } from "../Input/";
+import IconeGoogle from "../../assets/googleIcon.png";
 
 function Register() {
   const { setLogin } = useContext(AuthContext);
@@ -63,10 +64,12 @@ function Register() {
         Ou
       </p>
       <div className="flex justify-center">
-        <ButtonGoogleLogin
-          onClick={() => handleClickButtonLogin()}
-          type="button"
-        />
+      <button onClick={() => handleClickButtonLogin()}
+          type="button" className="flex items-center gap-[10px] py-2 px-8 border border-solid border-black">
+      <img className="h-6" src={IconeGoogle} />
+      <p>Entrar com o google</p>
+    </button>
+        
       </div>
     </div>
   );

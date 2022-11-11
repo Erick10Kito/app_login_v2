@@ -1,4 +1,5 @@
 import { initializeApp } from "firebase/app";
+import { getStorage } from "firebase/storage";
 
 import {
   getAuth,
@@ -23,6 +24,7 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+const storage = getStorage(app);
 const loginGoogle = () => {
   const provider = new GoogleAuthProvider();
   const result = signInWithPopup(auth, provider);
@@ -34,4 +36,4 @@ const Logout = async () => {
   return document.location.reload();
 };
 
-export { auth, loginGoogle, Logout };
+export { auth, loginGoogle, Logout, storage };
